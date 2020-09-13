@@ -1,19 +1,24 @@
 
 
-var robot = require("robotjs");
+const robot = require("robotjs");
+const opn = require('opn');
+const process = require('process');
 
 // Speed up the mouse.
 robot.setMouseDelay(2);
 
-var twoPI = Math.PI * 2.0;
-var screenSize = robot.getScreenSize();
-var height = (screenSize.height / 2) - 10;
-var width = screenSize.width;
+const twoPI = Math.PI * 2.0;
+const screenSize = robot.getScreenSize();
+const height = (screenSize.height / 2) - 10;
+const width = screenSize.width;
 
+//opn()  打开文件地址
+opn('/Users/sexin/project')
 
+let flag = true;
 
-while (true) {
-    for (var x = 0; x < width; x++) {
+while (flag) {
+    for (let x = 0; x < width; x++) {
         y = height * Math.sin((twoPI * x) / width) + height;
         robot.moveMouse(x, y);
     }
